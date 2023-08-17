@@ -1,3 +1,4 @@
+"""
 License: MIT License
 Copyright (c) 2023 Miel Donkers
 Very simple HTTP server in python for logging requests
