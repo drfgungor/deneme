@@ -23,9 +23,9 @@ class S(BaseHTTPRequestHandler):
         content_length = int(self.headers['Content-Length']) # <--- Gets the size of data
         post_data = self.rfile.read(content_length) # <--- Gets the data itself
         dicti = {"mehmet": "akca", "ersin": "akca", "fatih": "gungor"}
-        if post_data.decode('utf-8') in dicti.keys:
+        try:
             response = dicti[post_data.decode('utf-8')]
-        else:
+        except KeyError:
             response = "Bilinmeyen isim"
         logging.info("POST request,\nPath: %s\nHeaders:\n%s\n\nBody:\n%s\n",
                 str(self.path), str(self.headers), post_data.decode('utf-8'))
